@@ -105,13 +105,6 @@ http://127.0.0.1:8000/
 Contributions are welcome!
 Fork the repository and submit a pull request.
 
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
 
 ## 👨‍💻 Author
 
