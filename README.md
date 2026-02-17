@@ -35,18 +35,6 @@ The application demonstrates core Django concepts including models, views, templ
 * JavaScript
 * SQLite Database
 
----
-
-
-
----
-
-## 🔗 Live Demo
-
-(Add your deployed project link here if available)
-
----
-
 ## 📂 Installation & Setup
 
 Clone the repository:
