@@ -119,3 +119,11 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+# settings.py (add near the bottom)
+
+# Redirect URLs after login/logout
+LOGIN_REDIRECT_URL = 'home'   # Redirect after login
+LOGOUT_REDIRECT_URL = 'home'  # Redirect after logout
+
+# Optional: specify login URL for @login_required decorator
+LOGIN_URL = 'login'

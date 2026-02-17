@@ -1,72 +1,23 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travelworld - Destinations</title>
-    <link rel="stylesheet" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+{% extends 'travelworld/base.html' %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% block title %}Travelworld - Destinations{% endblock %}
 
-</head>
-<body>
+{% block content %}
+<h2 class="mb-4 text-center">Explore Our Destinations</h2>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="#">Travelworld</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Main Content -->
-<div class="container mt-5">
-    <h2 class="mb-4 text-center">Explore Our Destinations</h2>
-
-    <div class="row g-4">
-        {% for dest in destinations %}
-        <div class="col-12 col-md-4 mt-4"> <!-- 3 cards per row on md+ screens -->
-            <div class="card h-100 shadow-sm d-flex flex-column">
-                <!-- Image covering full width -->
-                <img src="{{ dest.image.url }}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="{{ dest.name }}">
-
-                <!-- Card Body -->
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-uppercase fw-bold text-center">{{ dest.name }}</h5>
-                    <p class="text-success text-center mb-1">{{ dest.tagline }}</p>
-                    <p class="fw-semibold text-center mb-3">From ₹{{ dest.price }}</p>
-                    <a href="{% url 'destination_detail' dest.id %}" class="btn btn-dark mt-auto">View Details</a>
-                </div>
+<div class="row g-4">
+    {% for dest in destinations %}
+    <div class="col-12 col-md-4 mt-4">
+        <div class="card h-100 shadow-sm d-flex flex-column">
+            <img src="{{ dest.image.url }}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="{{ dest.name }}">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-uppercase fw-bold text-center">{{ dest.name }}</h5>
+                <p class="text-success text-center mb-1">{{ dest.tagline }}</p>
+                <p class="fw-semibold text-center mb-3">From ₹{{ dest.price }}</p>
+                <a href="{% url 'destination_detail' dest.id %}" class="btn btn-success mt-auto">View Details</a>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
-
-<!-- Footer -->
-<footer class="bg-dark text-white mt-5 py-4">
-    <div class="container text-center">
-        <p class="mb-0">&copy; 2026 Travelworld. All Rights Reserved.</p>
-        <p class="mb-0">
-            <a href="#" class="text-white me-3">Privacy Policy</a>
-            <a href="#" class="text-white">Terms of Service</a>
-        </p>
-    </div>
-</footer>
-
-<script src="{% static 'styles/bootstrap4/bootstrap.bundle.min.js' %}"></script>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'travelworld/base.html' %}
+
+{% block title %}My Bookings - Travelworld{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">My Bookings</h2>
+
+{% if bookings %}
+    <div class="row">
+        {% for booking in bookings %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ booking.destination.name }}</h5>
+                    <p class="mb-1"><strong>Persons:</strong> {{ booking.persons }}</p>
+                    <p class="mb-1"><strong>Date:</strong> {{ booking.booking_date }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="text-center">No bookings yet.</p>
+{% endif %}
+{% endblock %}
